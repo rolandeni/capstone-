@@ -5,15 +5,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const Todo = require('./models/todo')
 
-//connect to MongoDB
-mongoose
-  .connect(
-    'mongodb://mongo:27017/firstmongo',
-    { useNewUrlParser: true,
-  })
-  .then(() => console.log('mongoDB connected'))
-  .catch((err) => console.log(err))
-  
+mongoose.connect('mongodb://localhost/firstmongo')
 
 app.use('/', express.static(path.resolve(__dirname, 'assets')))
 
@@ -67,6 +59,6 @@ app.post('/api/create', async (req, res) => {
 	res.json({ status: 'ok' })
 })
 
-app.listen(3000, () => {
+app.listen(13371, '127.0.0.1', () => {
 	console.log('Server up')
 })
